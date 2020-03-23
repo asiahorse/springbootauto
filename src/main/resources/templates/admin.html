@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!--字符串输出-->
+    <p th:text="'hello SpringBoot'">hello thymeleaf</p>
+    <!--数学运算-->
+    <p th:text="9 + 10"></p>
+    <p th:text="10 * 10"></p>
+    <p th:text="1 - 10"></p>
+    <p th:text="8 / 3"></p>
+    <p th:text="3 % 2"></p>
+    <!--操作域对象-->
+    <p th:text="${admin}"></p>
+    <p th:text="${admin.username}"></p>
+
+    <!--遍历数组-->
+    <table th:each="item, sta:${admins}">
+        <tr>
+            <td th:text="${sta.count}+------"></td>
+            <td th:text="${item.loginacct}"></td>
+            <td th:text="${item.username}"></td>
+            <td th:text="${item.userpswd}"></td>
+        </tr>
+    </table>
+
+
+    <!--遍历map-->
+    <div th:each="item:${maps}" th:text="${item.key}"></div>
+
+    <!--遍历数组-->
+  <!--   <div th:each="item:${maps}" th:text="${item}"></div> -->
+
+    <!--设置属性-->
+    <!-- <input type="text" th:attr="value=${admin.username}">
+    <input type="text" th:attr="value=${admin.username}, title=${admin.username}"> -->
+
+    <!--表单数据绑定-->
+    <!--<form action="" th:object="${admin}">
+        <input type="text" th:value="*{username}">
+        <input type="password" th:value="*{userpswd}">
+         <select>
+            <option th:each="item:${admins}" th:text="${item.loginacct}" th:selected="'admin' eq ${item.loginacct}"></option>
+        </select> 
+    </form>-->
+
+    <!--解析html文本内容-->
+    <p th:utext="'<span>html</span>'"></p>
+
+    <!--流程控制-->
+<!--     <p th:if="${admin.username} != ${user.userpswd}">yes</p>
+    <div th:switch="${admin.username}">
+        <p th:case="rose">name is rose</p>
+        <p th:case="jack">name is jack</p>
+    </div> -->
+
+    <!--外部引入-->
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <script th:src="@{/js/index.js}"></script>
+
+    <a th:href="@{/list}">home</a>
+</body>
+
+</html>

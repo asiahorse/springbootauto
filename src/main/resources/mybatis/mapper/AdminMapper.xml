@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.springboot.springbootauto.mapper.AdminMapper">
+    <select id="getAdminById" resultType="com.atguigu.springboot.springbootauto.bean.TAdmin">
+		SELECT * FROM t_admin WHERE id=#{id}
+	</select>
+
+	<!-- List<TAdmin> getAdminList(); -->
+	<select id="getAdminList" resultType="com.atguigu.springboot.springbootauto.bean.TAdmin">
+		select * from t_admin
+	</select>
+</mapper>
